@@ -72,7 +72,15 @@ namespace VRStandardAssets.Flyer
             while (m_IsGameRunning)
             {
                 // Set the target marker position to a point forward of the camera multiplied by the distance from the camera.
-                Quaternion headRotation = InputTracking.GetLocalRotation (VRNode.Head);
+                Quaternion headRotation;
+                if (VRDevice.isPresent)
+                {
+                    headRotation = InputTracking.GetLocalRotation(VRNode.Head);
+                }
+                else
+                {
+                    headRotation = Camera.main.transform.rotation;
+                }
                 m_TargetMarker.position = m_Camera.position + (headRotation * Vector3.forward) * m_DistanceFromCamera;
 
                 // Move the camera container forward.
