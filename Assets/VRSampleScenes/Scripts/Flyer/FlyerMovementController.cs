@@ -81,7 +81,7 @@ namespace VRStandardAssets.Flyer
                 {
                     headRotation = Camera.main.transform.rotation;
                 }
-                m_TargetMarker.position = m_Camera.position + (headRotation * Vector3.forward) * m_DistanceFromCamera;
+                //m_TargetMarker.position = m_Camera.position + (headRotation * Vector3.forward) * m_DistanceFromCamera;
 
                 // Move the camera container forward.
                 m_CameraContainer.Translate (Vector3.forward * Time.deltaTime * m_Speed);
@@ -94,7 +94,7 @@ namespace VRStandardAssets.Flyer
                 Vector3 dist = m_Flyer.position - m_TargetMarker.position;
 
                 // Base the target markers pitch (x rotation) on the distance in the y axis and it's roll (z rotation) on the distance in the x axis.
-                m_TargetMarker.eulerAngles = new Vector3 (dist.y, 0f, dist.x) * k_BankingCoef;
+                //m_TargetMarker.eulerAngles = new Vector3 (dist.y, 0f, dist.x) * k_BankingCoef;
 
                 // Make the flyer bank towards the marker.
                 m_Flyer.rotation = Quaternion.Lerp(m_Flyer.rotation, m_TargetMarker.rotation,
