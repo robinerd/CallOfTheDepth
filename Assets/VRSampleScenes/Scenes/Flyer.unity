@@ -686,9 +686,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64b4f3a592f28b44bf19223ac8b6cd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: -1.05
-  softness: 0
-  spread: 2.5
+  intensity: -2.97
+  softness: 5
+  spread: 13.2
   blurShader: {fileID: 4800000, guid: e97c14fbb5ea04c3a902cc533d7fc5d1, type: 3}
   depthFetchShader: {fileID: 4800000, guid: 14768d3865b1342e3a861fbe19ba2db2, type: 3}
   creaseApplyShader: {fileID: 4800000, guid: b59984d82af624bd3b0c777f038276f2, type: 3}
@@ -707,8 +707,8 @@ MonoBehaviour:
   excludeFarPixels: 1
   useRadialDistance: 0
   heightFog: 1
-  height: 1
-  heightDensity: 0.35
+  height: -20
+  heightDensity: 0.12
   startDistance: 0
   fogShader: {fileID: 4800000, guid: 70d8568987ac0499f952b54c7c13e265, type: 3}
 --- !u!1 &303132762
