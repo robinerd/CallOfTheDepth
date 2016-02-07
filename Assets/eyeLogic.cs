@@ -23,6 +23,9 @@ public class eyeLogic : MonoBehaviour {
             monsterScript.Moving = false;
             monsterScript.Retreating = true;
             Destroy(gameObject);
+
+            //TODO: make properly with HP and event system.
+            GameObject.Find("ActionMusic").GetComponent<AudioSource>().volume += 0.15f;
         }
             
     }
