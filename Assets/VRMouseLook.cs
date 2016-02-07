@@ -3,6 +3,8 @@ using UnityEngine.VR;
 
 public class VRMouseLook : MonoBehaviour {
 
+    public static bool currentlyMouseLooking = false;
+
 #if !UNITY_EDITOR
     const bool mouseLookEnabled = false;
 #else
@@ -66,7 +68,9 @@ public class VRMouseLook : MonoBehaviour {
 			mouseY = Mathf.Lerp(mouseY, 0, Time.deltaTime / (Time.deltaTime + 0.1f));
 		}
 
-		forwardTransform.localRotation = Quaternion.Inverse(Quaternion.Euler(0.0f, vrCameraTransform.localRotation.eulerAngles.y, 0.0f));
+        currentlyMouseLooking = pitched || rolled;
+
+        forwardTransform.localRotation = Quaternion.Inverse(Quaternion.Euler(0.0f, vrCameraTransform.localRotation.eulerAngles.y, 0.0f));
 		rotationTransform.localRotation = Quaternion.Euler(0, vrCameraTransform.localRotation.eulerAngles.y, 0.0f) * Quaternion.Euler(mouseY, mouseX, mouseZ);
 	}
 

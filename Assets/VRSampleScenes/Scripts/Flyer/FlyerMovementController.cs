@@ -73,7 +73,7 @@ namespace VRStandardAssets.Flyer
             {
                 // Set the target marker position to a point forward of the camera multiplied by the distance from the camera.
                 Quaternion headRotation;
-                if (VRDevice.isPresent)
+                if (VRDevice.isPresent && !VRMouseLook.currentlyMouseLooking)
                 {
                     headRotation = InputTracking.GetLocalRotation(VRNode.Head);
                 }
