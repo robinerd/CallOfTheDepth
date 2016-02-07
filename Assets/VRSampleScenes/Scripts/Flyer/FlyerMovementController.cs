@@ -11,7 +11,9 @@ namespace VRStandardAssets.Flyer
     public class FlyerMovementController : MonoBehaviour
     {
         [SerializeField] private float m_DistanceFromCamera = 75f;  // The distance from the camera the ship aims to be.
-        [SerializeField] private float m_Speed = 100f;              // The speed the ship moves forward.
+        [SerializeField] private float m_Speed = 80f;               // The speed the ship moves forward.
+        [SerializeField] private float m_BoostedSpeed = 93f;        // The speed after hitting a ring.
+        [SerializeField] private float m_BoostDuration = 2.0f;
         [SerializeField] private float m_Damping = 0.5f;            // The amount of damping applied to the movement of the ship.
         [SerializeField] private Transform m_Flyer;                 // Reference to the transform of the flyer.
         [SerializeField] private Transform m_TargetMarker;          // The transform the flyer is moving towards.
@@ -19,16 +21,17 @@ namespace VRStandardAssets.Flyer
         [SerializeField] private Transform m_CameraContainer;       // Reference to the transform containing the camera.
         [SerializeField] private Text m_CurrentScore;               // Reference to the Text component that will display the user's score.
 
-
         private bool m_IsGameRunning;                               // Whether the game is running.
         private Vector3 m_FlyerStartPos;                            // These positions and rotations are stored at Start so the flyer can be reset each game.
         private Quaternion m_FlyerStartRot;
         private Vector3 m_TargetMarkerStartPos;
         private Quaternion m_TargetMarkerStartRot;
         private Vector3 m_CameraContainerStartPos;
+        private float m_StandardSpeed;
+
         public bool jumpTargetBool;
         public GameObject jumpTarget;
-
+        
         private const float k_ExpDampingCoef = -20f;                // The coefficient used to damp the movement of the flyer.
         private const float k_BankingCoef = 3f;                     // How much the ship banks when it moves.
 
@@ -41,6 +44,7 @@ namespace VRStandardAssets.Flyer
             m_TargetMarkerStartPos = m_TargetMarker.position;
             m_TargetMarkerStartRot = m_TargetMarker.rotation;
             m_CameraContainerStartPos = m_CameraContainer.position;
+            m_StandardSpeed = m_Speed;
         }
 
 
@@ -67,11 +71,20 @@ namespace VRStandardAssets.Flyer
             m_CameraContainer.position = m_CameraContainerStartPos;
         }
 
+        public void Boost()
+        {
+            m_Speed = m_BoostedSpeed;
+            GetComponentInChildren<TrailRendererBooster>().Boost();
+        }
 
         private IEnumerator MoveFlyer ()
         {
             while (m_IsGameRunning)
             {
+                if(m_Speed > m_StandardSpeed + 0.5f)
+                {
+                    m_Speed -= (m_BoostedSpeed - m_StandardSpeed) / m_BoostDuration * Time.deltaTime;
+                }
                 // Set the target marker position to a point forward of the camera multiplied by the distance from the camera.
                 Quaternion headRotation;
                 if (VRDevice.isPresent && !VRMouseLook.currentlyMouseLooking)

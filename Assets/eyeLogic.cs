@@ -18,24 +18,21 @@ public class eyeLogic : MonoBehaviour {
     {
         if (other.gameObject.name == "FlyerLaser(Clone)")
         {
-
             //gameObject.transform.parent.Translate(Vector3.forward * 1000f);
             var flyerController = GameObject.Find("FlyerPlayership").GetComponent<VRStandardAssets.Flyer.FlyerMovementController>();
             flyerController.jumpTargetBool = true;
             flyerController.jumpTarget = gameObject;
             Destroy(gameObject, 0.5f);
-
-            //TODO: make properly with HP and event system.
-            GameObject.Find("ActionMusic").GetComponent<AudioSource>().volume += 0.15f;
         }
             
     }
-    void Destroy()
+    void OnDestroy()
     {
-        var monsterScript = gameObject.GetComponentInParent<BasicMonsterBehavior>();
-        monsterScript.Moving = false;
+        Debug.Log("Eye destroyed!!");
+        BasicMonsterBehavior monsterScript = gameObject.GetComponentInParent<BasicMonsterBehavior>();
+        monsterScript.PlayerClose = false;
         monsterScript.Retreating = true;
-        var flyerController = GameObject.Find("FlyerPlayership").GetComponent<VRStandardAssets.Flyer.FlyerMovementController>();
+        var flyerController = GameObject.FindObjectOfType<VRStandardAssets.Flyer.FlyerMovementController>();
         flyerController.jumpTargetBool = false;
     }
 }

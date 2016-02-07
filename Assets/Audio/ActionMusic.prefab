@@ -115,17 +115,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fd12751eb5c8d94b956ee936e16e726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nearDistance: 150
-  farDistance: 250
-  nearObject: {fileID: 0}
-  farObject: {fileID: 0}
+  loudestDistance: 500
+  silentDistance: 800
+  player: {fileID: 0}
+  other: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: nearDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: farDistance
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: loudestDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: silentDistance
+      value: 800
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 139954}

@@ -92,6 +92,9 @@ namespace VRStandardAssets.Flyer
 
             // Set the ring's colour.
             SetRingColour (m_ActivatedColor);
+
+            //Give some boost to the player
+            GameObject.FindObjectOfType<FlyerMovementController>().Boost();
         }
 
 
