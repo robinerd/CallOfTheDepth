@@ -26,7 +26,8 @@ namespace VRStandardAssets.Flyer
         private Vector3 m_TargetMarkerStartPos;
         private Quaternion m_TargetMarkerStartRot;
         private Vector3 m_CameraContainerStartPos;
-
+        public bool jumpTargetBool;
+        public GameObject jumpTarget;
 
         private const float k_ExpDampingCoef = -20f;                // The coefficient used to damp the movement of the flyer.
         private const float k_BankingCoef = 3f;                     // How much the ship banks when it moves.
@@ -81,7 +82,11 @@ namespace VRStandardAssets.Flyer
                 {
                     headRotation = Camera.main.transform.rotation;
                 }
-                m_TargetMarker.position = m_Camera.position + (headRotation * Vector3.forward) * m_DistanceFromCamera;
+
+                if (jumpTarget)
+                    m_TargetMarker.position = jumpTarget.transform.position - jumpTarget.transform.localScale.x*jumpTarget.transform.parent.transform.localScale.x/2 * Vector3.forward + (headRotation * Vector3.forward);
+                else
+                    m_TargetMarker.position = m_Camera.position + (headRotation * Vector3.forward) * m_DistanceFromCamera;
 
                 // Move the camera container forward.
                 m_CameraContainer.Translate (Vector3.forward * Time.deltaTime * m_Speed);
