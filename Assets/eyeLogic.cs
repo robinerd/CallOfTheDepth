@@ -24,6 +24,9 @@ public class eyeLogic : MonoBehaviour {
             flyerController.jumpTargetBool = true;
             flyerController.jumpTarget = gameObject;
             Destroy(gameObject, 0.5f);
+
+            //TODO: make properly with HP and event system.
+            GameObject.Find("ActionMusic").GetComponent<AudioSource>().volume += 0.15f;
         }
             
     }
