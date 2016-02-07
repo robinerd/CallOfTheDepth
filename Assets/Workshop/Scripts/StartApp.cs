@@ -3,6 +3,7 @@
 using UnityEngine;
 using System.Collections;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 
 // StartApp is responsible for handling the scene introductions and transitions when the application first starts.
@@ -48,7 +49,7 @@ public class StartApp : MonoBehaviour {
 
 	void launchNextScene() {
 		// Load the scene at the given index in build settings.
-		Application.LoadLevel(mMainSceneIndex);
+		SceneManager.LoadScene(mMainSceneIndex);
 	}
 
 	// The fade should start at the exact moment there is enough time left in the splash scene
