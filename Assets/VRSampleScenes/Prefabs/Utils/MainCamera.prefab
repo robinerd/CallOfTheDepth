@@ -325,7 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc21d660b6557940a0cce1888e22fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MenuSceneName: MainMenu
+  m_MenuSceneName: Flyer
   m_VRInput: {fileID: 11427250}
   m_VRCameraFade: {fileID: 11456534}
 --- !u!114 &11456534
