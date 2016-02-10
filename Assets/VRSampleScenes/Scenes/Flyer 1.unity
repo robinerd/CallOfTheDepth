@@ -3888,8 +3888,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 1
-  m_Color: {r: 0.13786763, g: 0.423428, b: 0.625, a: 1}
-  m_Intensity: 0.87
+  m_Color: {r: 0.13786763, g: 0.58468556, b: 0.625, a: 1}
+  m_Intensity: 1.27
   m_Range: 10000
   m_SpotAngle: 97.5
   m_CookieSize: 10
@@ -6335,8 +6335,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 1
-  m_Color: {r: 0.04768599, g: 0.3602941, b: 0.04984189, a: 1}
-  m_Intensity: 3.33
+  m_Color: {r: 0.30147058, g: 0.22515512, b: 0.08866781, a: 1}
+  m_Intensity: 0.6
   m_Range: 10000
   m_SpotAngle: 40.6
   m_CookieSize: 10
@@ -9608,6 +9608,7 @@ GameObject:
   - 114: {fileID: 1996701668}
   - 114: {fileID: 1996701667}
   - 114: {fileID: 1996701666}
+  - 114: {fileID: 1996701682}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -9879,6 +9880,32 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!114 &1996701682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1996701664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 646b5bc27a658f447b1d929fd5ffbd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 1
+  showGeneratedNormals: 0
+  offsetScale: 0.2
+  blurRadius: 18
+  edgeThresholdMin: 0.05
+  edgeThreshold: 0.2
+  edgeSharpness: 4
+  dlaaSharp: 0
+  ssaaShader: {fileID: 4800000, guid: b3728d1488b02490cbd196c7941bf1f8, type: 3}
+  dlaaShader: {fileID: 4800000, guid: 017ca72b9e8a749058d13ebd527e98fa, type: 3}
+  nfaaShader: {fileID: 4800000, guid: ce0cb2621f6d84e21a87414e471a3cce, type: 3}
+  shaderFXAAPreset2: {fileID: 4800000, guid: 6f1418cffd12146f2a83be795f6fa5a7, type: 3}
+  shaderFXAAPreset3: {fileID: 4800000, guid: c182fa94a5a0a4c02870641efcd38cd5, type: 3}
+  shaderFXAAII: {fileID: 4800000, guid: cd5b323dcc592457790ff18b528f5e67, type: 3}
+  shaderFXAAIII: {fileID: 4800000, guid: c547503fff0e8482ea5793727057041c, type: 3}
 --- !u!1 &2005882236
 GameObject:
   m_ObjectHideFlags: 0
