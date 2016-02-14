@@ -19,7 +19,7 @@ RenderSettings:
   m_FogMode: 1
   m_FogDensity: 0.002
   m_LinearFogStart: 250
-  m_LinearFogEnd: 1200
+  m_LinearFogEnd: 800
   m_AmbientSkyColor: {r: 0.30622834, g: 0.7305565, b: 0.86764705, a: 1}
   m_AmbientEquatorColor: {r: 0.03137255, g: 0.5254902, b: 0.6901961, a: 1}
   m_AmbientGroundColor: {r: 0.062445927, g: 0.44240272, b: 0.5661765, a: 1}
@@ -8323,11 +8323,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: 5541219813d3013498d9150d729e2c37, type: 3}
       propertyPath: m_AABB.m_Center.z
-      value: -0.009759583
+      value: -0.009871632
       objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: 5541219813d3013498d9150d729e2c37, type: 3}
       propertyPath: m_AABB.m_Extent.z
-      value: 0.13055682
+      value: 0.13066888
       objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: 5541219813d3013498d9150d729e2c37, type: 3}
       propertyPath: m_ReflectionProbeUsage
@@ -10028,7 +10028,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerClose: 0
   Retreating: 0
-  cthulhuAnimator: {fileID: 0}
 --- !u!135 &2009862233
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10039,7 +10038,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2019964197
 GameObject:

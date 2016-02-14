@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class eyeLogic : MonoBehaviour {
-    int escapeHash = Animator.StringToHash("IdleEscape");
-    // Use this for initialization
-    void Start () {
+
+	// Use this for initialization
+	void Start () {
 	
 	}
 	
@@ -30,7 +30,6 @@ public class eyeLogic : MonoBehaviour {
     {
         Debug.Log("Eye destroyed!!");
         BasicMonsterBehavior monsterScript = gameObject.GetComponentInParent<BasicMonsterBehavior>();
-        monsterScript.cthulhuAnimator.SetTrigger(escapeHash);
         monsterScript.PlayerClose = false;
         monsterScript.Retreating = true;
         var flyerController = GameObject.FindObjectOfType<VRStandardAssets.Flyer.FlyerMovementController>();
