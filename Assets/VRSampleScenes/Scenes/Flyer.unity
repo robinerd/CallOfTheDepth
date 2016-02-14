@@ -150,6 +150,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 35359612}
+  - 114: {fileID: 35359613}
   m_Layer: 0
   m_Name: Lasers
   m_TagString: Untagged
@@ -171,6 +172,17 @@ Transform:
   - {fileID: 1093140826}
   m_Father: {fileID: 1806694544}
   m_RootOrder: 3
+--- !u!114 &35359613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 35359611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c5460ec6ed2af14e84a981bae79c393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &83174689
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,6 +493,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 306741794}
   - 111: {fileID: 306741795}
+  - 114: {fileID: 306741796}
   m_Layer: 0
   m_Name: humpback_whale_model_baked_animation
   m_TagString: Untagged
@@ -521,6 +534,17 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 1
+--- !u!114 &306741796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 306741793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c5460ec6ed2af14e84a981bae79c393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &308727226
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,7 +585,7 @@ GameObject:
   - 23: {fileID: 311341696}
   m_Layer: 5
   m_Name: GUIArrowsRear
-  m_TagString: Untagged
+  m_TagString: GUIArrowRenderer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1432,7 +1456,7 @@ GameObject:
   - 23: {fileID: 531050561}
   m_Layer: 5
   m_Name: GUIArrowsRight
-  m_TagString: Untagged
+  m_TagString: GUIArrowRenderer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1982,6 +2006,7 @@ GameObject:
   - 223: {fileID: 706601715}
   - 114: {fileID: 706601714}
   - 95: {fileID: 706601713}
+  - 114: {fileID: 706601716}
   m_Layer: 5
   m_Name: GUI
   m_TagString: Untagged
@@ -2065,6 +2090,17 @@ Canvas:
   m_SortingLayerID: -1915606183
   m_SortingOrder: 1
   m_TargetDisplay: 0
+--- !u!114 &706601716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 706601711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c5460ec6ed2af14e84a981bae79c393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &725836725
 GameObject:
   m_ObjectHideFlags: 0
@@ -3231,6 +3267,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 1151868117}
   - 223: {fileID: 1151868116}
+  - 114: {fileID: 1151868118}
   m_Layer: 5
   m_Name: GUITargetMarker
   m_TagString: Untagged
@@ -3275,6 +3312,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1151868118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1151868115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c5460ec6ed2af14e84a981bae79c393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1190931087
 GameObject:
   m_ObjectHideFlags: 0
@@ -4424,6 +4472,7 @@ GameObject:
   - 4: {fileID: 1410615444}
   - 33: {fileID: 1410615446}
   - 23: {fileID: 1410615445}
+  - 114: {fileID: 1410615447}
   m_Layer: 0
   m_Name: FlyerPlayership
   m_TagString: Untagged
@@ -4476,6 +4525,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1410615443}
   m_Mesh: {fileID: 0}
+--- !u!114 &1410615447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1410615443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c5460ec6ed2af14e84a981bae79c393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1438103937
 GameObject:
   m_ObjectHideFlags: 0
@@ -6383,7 +6443,7 @@ GameObject:
   - 23: {fileID: 1532092556}
   m_Layer: 5
   m_Name: GUIArrowsLeft
-  m_TagString: Untagged
+  m_TagString: GUIArrowRenderer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8556,6 +8616,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1772932440}
+  - 114: {fileID: 1772932441}
+  - 114: {fileID: 1772932442}
   m_Layer: 2
   m_Name: Trails
   m_TagString: Untagged
@@ -8578,6 +8640,32 @@ Transform:
   - {fileID: 1514871125}
   m_Father: {fileID: 1806694544}
   m_RootOrder: 0
+--- !u!114 &1772932441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1772932439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c5460ec6ed2af14e84a981bae79c393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1772932442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1772932439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8988b0c531fac3488697584899ef2e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrailMaterial: {fileID: 2100000, guid: 7a474fad7982a8e42af709db5f90c4f6, type: 2}
+  m_StandardAlpha: 0.1
+  m_BoostedAlpha: 0.6
+  m_BoostDuration: 0.7
 --- !u!1 &1774840555
 GameObject:
   m_ObjectHideFlags: 0
@@ -8616,13 +8704,14 @@ GameObject:
   - 4: {fileID: 1782424376}
   - 95: {fileID: 1782424377}
   - 114: {fileID: 1782424375}
+  - 114: {fileID: 1782424378}
   m_Layer: 5
   m_Name: GUIArrows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1782424375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8637,11 +8726,11 @@ MonoBehaviour:
   m_FadeDuration: 0.5
   m_ShowAngle: 60
   m_DesiredDirection: {fileID: 0}
-  m_Camera: {fileID: 1996701665}
+  m_Camera: {fileID: 1996701681}
   m_ArrowRenderers:
-  - {fileID: 1532092556}
   - {fileID: 311341696}
   - {fileID: 531050561}
+  - {fileID: 1532092556}
 --- !u!4 &1782424376
 Transform:
   m_ObjectHideFlags: 0
@@ -8674,6 +8763,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1782424378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1782424374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c5460ec6ed2af14e84a981bae79c393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1784895648
 GameObject:
   m_ObjectHideFlags: 0
@@ -8815,28 +8915,18 @@ MonoBehaviour:
   m_StartingHealth: 100
   m_FlyerExplosionPrefab: {fileID: 199016, guid: f0f65e6f60b4f3a4dbc45b68038aaa89,
     type: 2}
-  m_HealthBar: {fileID: 880631049}
   m_ExplosionAudio: {fileID: 1806694552}
   m_ThrusterAudio: {fileID: 1806694551}
-  m_FlyerUIGameObjects:
-  - {fileID: 1151868115}
-  - {fileID: 706601711}
-  m_FlyerRenderers:
-  - {fileID: 1514871126}
-  - {fileID: 1754388241}
-  - {fileID: 744704176}
-  - {fileID: 1410615445}
-  - {fileID: 1503944200}
-  - {fileID: 379159184}
-  - {fileID: 783476806}
-  - {fileID: 549856693}
-  - {fileID: 876206141}
-  - {fileID: 1005616225}
-  - {fileID: 591510637}
-  - {fileID: 224420699}
-  - {fileID: 1917514926}
-  m_FlyerColliders:
-  - {fileID: 1806694545}
+  m_HealthBar: {fileID: 880631049}
+  m_InGameObjects:
+  - {fileID: 1410615447}
+  - {fileID: 1772932441}
+  - {fileID: 306741796}
+  - {fileID: 35359613}
+  - {fileID: 706601716}
+  - {fileID: 1782424378}
+  - {fileID: 1151868118}
+  - {fileID: 2009862234}
 --- !u!114 &1806694547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8865,11 +8955,12 @@ MonoBehaviour:
   m_BoostedSpeed: 93
   m_BoostDuration: 2
   m_Damping: 0.5
+  m_CurrentScore: {fileID: 1960188953}
+  m_trailRendererBooster: {fileID: 1772932442}
   m_Flyer: {fileID: 1806694544}
   m_TargetMarker: {fileID: 1151868117}
-  m_Camera: {fileID: 1996701665}
+  m_Camera: {fileID: 1996701681}
   m_CameraContainer: {fileID: 312828287}
-  m_CurrentScore: {fileID: 1960188953}
   jumpTargetBool: 0
   jumpTarget: {fileID: 0}
 --- !u!114 &1806694549
@@ -8887,7 +8978,7 @@ MonoBehaviour:
   m_GameController: {fileID: 328523170}
   m_LaserObjectPool: {fileID: 536163053}
   m_LaserSpawnPosLeft: {fileID: 1111780854}
-  m_LaserSpawnPosRight: {fileID: 1093140826}
+  m_LaserSpawnPosRight: {fileID: 1111780854}
   m_LaserAudio: {fileID: 1806694553}
 --- !u!114 &1806694550
 MonoBehaviour:
@@ -9984,9 +10075,10 @@ GameObject:
   - 4: {fileID: 2009862231}
   - 135: {fileID: 2009862233}
   - 114: {fileID: 2009862232}
+  - 114: {fileID: 2009862234}
   m_Layer: 0
   m_Name: chtuluetetsetetet
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10040,6 +10132,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2009862234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2009862230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c5460ec6ed2af14e84a981bae79c393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2019964197
 GameObject:
   m_ObjectHideFlags: 0
@@ -10196,10 +10299,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fd12751eb5c8d94b956ee936e16e726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loudestDistance: 0
-  silentDistance: 0
-  player: {fileID: 0}
-  other: {fileID: 0}
+  player: {fileID: 1806694544}
+  other: {fileID: 2009862231}
+  loudestDistance: 400
+  silentDistance: 600
 --- !u!82 &2093401297
 AudioSource:
   m_ObjectHideFlags: 0

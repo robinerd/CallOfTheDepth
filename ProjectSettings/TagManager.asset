@@ -5,7 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Trail
-  - New Tag
+  - Finger
+  - MainBodyPart
+  - Boss
+  - GUIArrowRenderer
   layers:
   - Default
   - TransparentFX

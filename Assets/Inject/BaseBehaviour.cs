@@ -9,10 +9,11 @@ public class BaseBehaviour : MonoBehaviour {
     const BindingFlags FIELD_FLAGS = 
         BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static;
 
-    void Awake()
+    /*
+    virtual protected void Awake()
     {
         InjectDependencies(true, true);
-    }
+    }*/
 
     public void InjectDependencies(bool forceReset, bool logErrors)
     {
@@ -41,8 +42,6 @@ public class BaseBehaviour : MonoBehaviour {
                             }
                             else
                             {
-                                Debug.Log(results.Length);
-
                                 if (field.FieldType.IsArray)
                                     field.SetValue(this, results);
                                 else

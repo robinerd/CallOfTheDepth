@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MusicFader : MonoBehaviour {
+public class MusicFader : BaseBehaviour {
+
+    [Inject("#Player")][SerializeField]
+    private Transform player;
+    [Inject("#Boss")][SerializeField]
+    private Transform other;
 
     public float loudestDistance;
     public float silentDistance;
-    public Transform player;
-    public Transform other;
 
     float range;
 

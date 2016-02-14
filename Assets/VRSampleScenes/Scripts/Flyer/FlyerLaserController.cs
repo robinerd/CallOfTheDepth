@@ -5,15 +5,25 @@ namespace VRStandardAssets.Flyer
 {
     // This script handles getting the laser instances from
     // the object pool and firing them.
-    public class FlyerLaserController : MonoBehaviour
+    public class FlyerLaserController : BaseBehaviour
     {
-        [SerializeField] private VRInput m_VRInput;                     // Reference to the VRInput so when the fire button is pressed it can be handled.
-        [SerializeField] private FlyerGameController m_GameController;  // Reference to the game controller so firing can be limited to when the game is running.
-        [SerializeField] private ObjectPool m_LaserObjectPool;          // Reference to the object pool the lasers belong to.
-        [SerializeField] private Transform m_LaserSpawnPosLeft;         // The positions the lasers should spawn from.
-        [SerializeField] private Transform m_LaserSpawnPosRight;
-        [SerializeField] private AudioSource m_LaserAudio;              // The audio source that should play firing sounds.
+        //==============================================================================
+        //Injected dependencies
+        [SerializeField][Inject("")]
+        private VRInput m_VRInput;                     // Reference to the VRInput so when the fire button is pressed it can be handled.
+        [SerializeField][Inject("")]
+        private FlyerGameController m_GameController;  // Reference to the game controller so firing can be limited to when the game is running.
+        [SerializeField][Inject("LaserObjectPool")]
+        private ObjectPool m_LaserObjectPool;          // Reference to the object pool the lasers belong to.
 
+        // The positions the lasers should spawn from.
+        [SerializeField][Inject("FlyerPlayerShipLaserLeft")]
+        private Transform m_LaserSpawnPosLeft;
+        [SerializeField][Inject("FlyerPlayerShipLaserLeft")]
+        private Transform m_LaserSpawnPosRight;
+        //==============================================================================
+
+        [SerializeField] private AudioSource m_LaserAudio;              // The audio source that should play firing sounds.
 
         private void OnEnable()
         {

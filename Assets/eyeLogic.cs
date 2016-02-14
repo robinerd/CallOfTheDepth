@@ -22,11 +22,13 @@ public class eyeLogic : MonoBehaviour {
             var flyerController = GameObject.Find("FlyerPlayership").GetComponent<VRStandardAssets.Flyer.FlyerMovementController>();
             flyerController.jumpTargetBool = true;
             flyerController.jumpTarget = gameObject;
+
             Destroy(gameObject, 0.5f);
+            Invoke("Die",   0.5f);
         }
             
     }
-    void OnDestroy()
+    void Die()
     {
         Debug.Log("Eye destroyed!!");
         BasicMonsterBehavior monsterScript = gameObject.GetComponentInParent<BasicMonsterBehavior>();

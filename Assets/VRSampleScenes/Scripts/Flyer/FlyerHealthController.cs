@@ -4,29 +4,31 @@ using UnityEngine.UI;
 
 namespace VRStandardAssets.Flyer
 {
-    public class FlyerHealthController : MonoBehaviour
+    public class FlyerHealthController : BaseBehaviour
     {
+        //References from editor
         [SerializeField] private float m_StartingHealth = 100f;         // The amount of health the flyer starts with.
         [SerializeField] private GameObject m_FlyerExplosionPrefab;     // A prefab of the flyer exploded into parts.
-        [SerializeField] private Image m_HealthBar;                     // Reference to the image used as a health bar.
         [SerializeField] private AudioSource m_ExplosionAudio;          // Reference to the audio source used to play the explosion sound.
         [SerializeField] private AudioSource m_ThrusterAudio;           // Reference to the audio source used to play the sound of the flyer engines.
-        [SerializeField] private GameObject[] m_FlyerUIGameObjects;     // All the gameobjects containing UI for the flyer (to be turned off on death).
-        [SerializeField] private Renderer[] m_FlyerRenderers;           // All the renderers for the flyer (to be turned off on death).
-        [SerializeField] private Collider[] m_FlyerColliders;           // All the colliders for the flyer (to be turned off on death).
 
+        //==============================================================================
+        //Injected dependencies
+        [SerializeField][Inject("#Player/GUI/HealthBar")]
+        private Image m_HealthBar;                                      // Reference to the image used as a health bar.
+        [SerializeField][Inject("")]
+        private InGameOnly[] m_InGameObjects;                           // All the gameobjects to be disabled when not playing a level
+        //==============================================================================
 
         private float m_CurrentHealth;                                  // How much health the flyer currently has.
         private bool m_IsDead;                                          // Whether the flyer is currently dead.
-
-
         private const float k_WaitForExplosion = 3f;                    // How long to wait for the explosion to finish before destroying it.
 
 
         public bool IsDead { get { return m_IsDead; } }
 
 
-        public void StartGame ()
+        public void StartGame () //TODO: trigger from state change
         {
             // Turn all the visual and physical components of the flyer on.
             ShowFlyer (true);
@@ -38,7 +40,7 @@ namespace VRStandardAssets.Flyer
         }
 
 
-        public void StopGame ()
+        public void StopGame () //TODO: trigger from state change
         {
             // Turn all the visual and physical components of the flyer off.
             ShowFlyer (false);
@@ -48,19 +50,9 @@ namespace VRStandardAssets.Flyer
         private void ShowFlyer(bool show)
         {
             // Go through all the renderers, colliders and gameobjects and turn them on or off as appropriate.
-            foreach (Renderer r in m_FlyerRenderers)
+            foreach (InGameOnly inGameObject in m_InGameObjects)
             {
-                r.enabled = show;
-            }
-
-            foreach (Collider c in m_FlyerColliders)
-            {
-                c.enabled = show;
-            }
-
-            foreach (GameObject flyerUIGameObject in m_FlyerUIGameObjects)
-            {
-                flyerUIGameObject.SetActive (show);
+                inGameObject.OnInGame(show);
             }
 
             // Play the thrusters if the flyer is being turned on and stop them if not.

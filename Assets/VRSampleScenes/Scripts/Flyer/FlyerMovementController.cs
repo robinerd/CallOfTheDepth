@@ -8,18 +8,29 @@ using VRStandardAssets.Common;
 namespace VRStandardAssets.Flyer
 {
     // This class handles the movement of the flyer ship.
-    public class FlyerMovementController : MonoBehaviour
+    public class FlyerMovementController : BaseBehaviour
     {
         [SerializeField] private float m_DistanceFromCamera = 75f;  // The distance from the camera the ship aims to be.
         [SerializeField] private float m_Speed = 80f;               // The speed the ship moves forward.
         [SerializeField] private float m_BoostedSpeed = 93f;        // The speed after hitting a ring.
-        [SerializeField] private float m_BoostDuration = 2.0f;
+        [SerializeField] private float m_BoostDuration = 2.0f;      // The duration of boost after hitting a ring.
         [SerializeField] private float m_Damping = 0.5f;            // The amount of damping applied to the movement of the ship.
-        [SerializeField] private Transform m_Flyer;                 // Reference to the transform of the flyer.
-        [SerializeField] private Transform m_TargetMarker;          // The transform the flyer is moving towards.
-        [SerializeField] private Transform m_Camera;                // Reference to the camera's transform.
-        [SerializeField] private Transform m_CameraContainer;       // Reference to the transform containing the camera.
-        [SerializeField] private Text m_CurrentScore;               // Reference to the Text component that will display the user's score.
+
+        //==============================================================================
+        //Injected dependencies
+        [SerializeField][Inject("#Player/GUI/Score")]
+        private Text m_CurrentScore;               // Reference to the Text component that will display the user's score.
+        [SerializeField][Inject("")]
+        private TrailRendererBooster m_trailRendererBooster;
+        [SerializeField][Inject("#Player")]
+        private Transform m_Flyer;
+        [SerializeField][Inject("GUITargetMarker")] 
+        private Transform m_TargetMarker;
+        [SerializeField][Inject("")]
+        private Camera m_Camera;
+        [SerializeField][Inject("FlyerVRCameraContainer")]
+        private Transform m_CameraContainer;
+        //==============================================================================
 
         private bool m_IsGameRunning;                               // Whether the game is running.
         private Vector3 m_FlyerStartPos;                            // These positions and rotations are stored at Start so the flyer can be reset each game.
@@ -74,7 +85,7 @@ namespace VRStandardAssets.Flyer
         public void Boost()
         {
             m_Speed = m_BoostedSpeed;
-            GetComponentInChildren<TrailRendererBooster>().Boost();
+            m_trailRendererBooster.Boost();
         }
 
         private IEnumerator MoveFlyer ()
@@ -99,7 +110,7 @@ namespace VRStandardAssets.Flyer
                 if (jumpTarget)
                     m_TargetMarker.position = jumpTarget.transform.position - jumpTarget.transform.localScale.x*jumpTarget.transform.parent.transform.localScale.x/2 * Vector3.forward + (headRotation * Vector3.forward);
                 else
-                    m_TargetMarker.position = m_Camera.position + (headRotation * Vector3.forward) * m_DistanceFromCamera;
+                    m_TargetMarker.position = m_Camera.transform.position + (headRotation * Vector3.forward) * m_DistanceFromCamera;
 
                 // Move the camera container forward.
                 m_CameraContainer.Translate (Vector3.forward * Time.deltaTime * m_Speed);

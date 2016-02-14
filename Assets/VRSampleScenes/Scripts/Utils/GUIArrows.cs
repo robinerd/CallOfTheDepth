@@ -4,13 +4,18 @@ namespace VRStandardAssets.Utils
 { 
     // This class fades in and out arrows which indicate to
     // the player which direction they should be facing.
-    public class GUIArrows : MonoBehaviour
+    public class GUIArrows : BaseBehaviour
     {
         [SerializeField] private float m_FadeDuration = 0.5f;       // How long it takes for the arrows to appear and disappear.
         [SerializeField] private float m_ShowAngle = 60f;           // How far from the desired facing direction the player must be facing for the arrows to appear.
         [SerializeField] private Transform m_DesiredDirection;      // Indicates which direction the player should be facing (uses world space forward if null).
-        [SerializeField] private Transform m_Camera;                // Reference to the camera to determine which way the player is facing.
-        [SerializeField] private Renderer[] m_ArrowRenderers;       // Reference to the renderers of the arrows used to fade them in and out.
+
+        //Injected references
+        [Inject("")][SerializeField]
+        private Camera m_Camera;                                 // Reference to the camera to determine which way the player is facing.
+
+        [Inject("#GUIArrowRenderer")][SerializeField]
+        private Renderer[] m_ArrowRenderers;       // Reference to the renderers of the arrows used to fade them in and out.
 
 
         private float m_CurrentAlpha;                               // The alpha the arrows currently have.
@@ -20,6 +25,10 @@ namespace VRStandardAssets.Utils
 
         private const string k_MaterialPropertyName = "_Alpha";     // The name of the alpha property on the shader being used to fade the arrows.
 
+        void Awake ()
+        {
+            gameObject.SetActive(false);
+        }
 
 	    private void Start ()
 	    {
@@ -34,7 +43,7 @@ namespace VRStandardAssets.Utils
             Vector3 desiredForward = m_DesiredDirection == null ? Vector3.forward : m_DesiredDirection.forward;
 
             // The forward vector of the camera as it would be on a flat plane.
-            Vector3 flatCamForward = Vector3.ProjectOnPlane(m_Camera.forward, Vector3.up).normalized;
+            Vector3 flatCamForward = Vector3.ProjectOnPlane(m_Camera.transform.forward, Vector3.up).normalized;
 
             // The difference angle between the desired facing and the current facing of the player.
             float angleDelta = Vector3.Angle (desiredForward, flatCamForward);
