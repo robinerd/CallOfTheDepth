@@ -19,7 +19,7 @@ public class MusicFader : BaseBehaviour {
         range = silentDistance - loudestDistance;
         if (range < 0.01)
         {
-            Debug.LogError("Incorrect setup of action music nearDistance/farDistance. Silent Distance must be more than Loudest Distance.");
+            Debug.LogError("Incorrect setup of MusicFader. Silent Distance must be more than Loudest Distance.");
             gameObject.SetActive(false);
         }
     }
