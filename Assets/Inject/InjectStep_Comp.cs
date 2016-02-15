@@ -19,10 +19,9 @@ public class InjectStep_Comp : InjectStep
         else
         {
             ArrayList result = new ArrayList();
-            result.AddRange(parent.GetComponentsInChildren(compType));
-            //result.AddRange(parent.GetComponents(compType));
-
-            return (UnityEngine.Object[])result.ToArray(compType);
+            Component[] components = parent.GetComponents(compType);
+            return components;
+            //return (UnityEngine.Object[])result.ToArray(compType);
         }
     }
 }
