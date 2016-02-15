@@ -9,6 +9,7 @@ TagManager:
   - MainBodyPart
   - Boss
   - GUIArrowRenderer
+  - TentacleSoundNode
   layers:
   - Default
   - TransparentFX
