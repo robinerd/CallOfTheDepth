@@ -143,7 +143,7 @@ Material:
       data:
         first:
           name: _Exposure
-        second: 1
+        second: 1.03
       data:
         first:
           name: _Parallax
@@ -196,4 +196,4 @@ Material:
       data:
         first:
           name: _Tint
-        second: {r: 0.018490477, g: 0.31965163, b: 0.41911763, a: 0.5}
+        second: {r: 0.067582175, g: 0.20623286, b: 0.36764705, a: 0.5}
