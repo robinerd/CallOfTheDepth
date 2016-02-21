@@ -5,15 +5,13 @@ public class SpeedBasedVolume : BaseBehaviour {
 
     public float loudestSpeed;
     public float silentSpeed;
+    public string relativeTo;
 
-    //==============================================================================
-    //Injected dependencies
-    [SerializeField][Inject("CthulhuWIP")]
-    private Transform relativeTo = null;
-    //==============================================================================
+    private GameObject relativeToGameObject = null;
 
     bool isFirstFrame = true;
     float movAvgFactor = 0.997f;
+    float maxVolume = 1.0f;
     float range;
     float speed; // game units moved per second, as a moving average
 
@@ -21,6 +19,13 @@ public class SpeedBasedVolume : BaseBehaviour {
     // Use this for initialization
     void Start()
     {
+        if(relativeTo != null)
+        {
+            relativeToGameObject = GameObject.Find(relativeTo);
+        }
+
+        maxVolume = GetComponent<AudioSource>().volume;
+
         range = loudestSpeed - silentSpeed;
         if (range < 0.01 && range > -0.01)
         {
@@ -33,9 +38,9 @@ public class SpeedBasedVolume : BaseBehaviour {
     void FixedUpdate()
     {
         Vector3 pos = transform.position;
-        if(relativeTo != null)
+        if(relativeToGameObject != null)
         {
-            pos -= relativeTo.position;
+            pos -= relativeToGameObject.transform.position;
         }
 
         if (!isFirstFrame)
@@ -44,7 +49,7 @@ public class SpeedBasedVolume : BaseBehaviour {
             speed = speed * movAvgFactor + (1 - movAvgFactor) * movedDistance / Time.fixedDeltaTime;
             float volumeFactor = Mathf.InverseLerp(silentSpeed, loudestSpeed, speed);
             volumeFactor = Mathf.Clamp01(volumeFactor);
-            GetComponent<AudioSource>().volume = volumeFactor;
+            GetComponent<AudioSource>().volume = volumeFactor * maxVolume;
         }
         isFirstFrame = false;
         prevPos = pos;

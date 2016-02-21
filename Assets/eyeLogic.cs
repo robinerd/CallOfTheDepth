@@ -2,7 +2,12 @@
 using System.Collections;
 
 public class eyeLogic : MonoBehaviour {
+
+    [SerializeField]
+    private Transform m_hurtSoundEffect;
+
     int escapeHash = Animator.StringToHash("IdleEscape");
+
     // Use this for initialization
     void Start () {
 	
@@ -23,7 +28,6 @@ public class eyeLogic : MonoBehaviour {
             flyerController.jumpTargetBool = true;
             flyerController.jumpTarget = gameObject;
 
-            Destroy(gameObject, 0.5f);
             Invoke("Die",   0.5f);
         }
             
@@ -35,7 +39,15 @@ public class eyeLogic : MonoBehaviour {
         monsterScript.cthulhuAnimator.SetTrigger(escapeHash);
         monsterScript.PlayerClose = false;
         monsterScript.Retreating = true;
+
         var flyerController = GameObject.FindObjectOfType<VRStandardAssets.Flyer.FlyerMovementController>();
         flyerController.jumpTargetBool = false;
+
+        if (m_hurtSoundEffect)
+            GameObject.Instantiate(m_hurtSoundEffect, monsterScript.transform.position, Quaternion.identity);
+        else
+            Debug.LogError("Error: missing sound effect prefab for m_hurtSoundEffect");
+
+        Destroy(gameObject, 0.05f);
     }
 }

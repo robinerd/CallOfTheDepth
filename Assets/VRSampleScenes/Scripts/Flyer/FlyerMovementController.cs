@@ -112,8 +112,15 @@ namespace VRStandardAssets.Flyer
                 else
                     m_TargetMarker.position = m_Camera.transform.position + (headRotation * Vector3.forward) * m_DistanceFromCamera;
 
+                float speed = m_Speed;
+#if UNITY_EDITOR
+                if (Input.GetKey(KeyCode.UpArrow))
+                    speed = m_Speed * 4;
+                else if (Input.GetKey(KeyCode.DownArrow))
+                    speed = - m_Speed * 3;
+#endif
                 // Move the camera container forward.
-                m_CameraContainer.Translate (Vector3.forward * Time.deltaTime * m_Speed);
+                m_CameraContainer.Translate (Vector3.forward * Time.deltaTime * speed);
 
                 // Move the flyer towards the target marker.
                 m_Flyer.position = Vector3.Lerp(m_Flyer.position, m_TargetMarker.position,
